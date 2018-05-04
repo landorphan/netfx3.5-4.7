@@ -1,0 +1,5 @@
+FROM microsoft/dotnet-framework
+RUN md C:\\Install\\NetFx3
+COPY ./microsoft-windows-netfx3-ondemand-package.cab C:\\Install\\NetFx3
+RUN powershell Add-WindowsPackage -Online -PackagePath C:\\Install\\NetFx3\\microsoft-windows-netfx3-ondemand-package.cab; 
+RUN rmdir /Q /S C:\\Install
